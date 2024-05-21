@@ -17,3 +17,4 @@
 
 # Follow-up: Can you come up with an algorithm that is less than O(n^2) time complexity?
 
+nums = [2, 7, 11, 15]
