@@ -27,6 +27,17 @@ def two_sums(nums, target):
                 continue
             elif (num + new_num) == target:
                 return [ind, next_ind]
+            
+def improve_two_sums(nums, target):
+    memory = {}
+    for ind, num in enumerate(nums):
+        diff = target - num
+        if diff in memory:
+            return [memory[diff], ind]
+        else:
+            memory[num] = ind
+    return
+
 
 questions = ([2, 7, 11, 15], [3, 2, 4], [3, 3])
 targets = (9, 6, 6)
@@ -34,4 +45,5 @@ answers = ([0, 1], [1, 2], [0, 1])
 
 for i in range(len(questions)):
     print(f'Question {i + 1}: {questions[i]} | Answer: {answers[i]}')
-    print(f'My Answer: {two_sums(questions[i], targets[i])}\n')
+    print(f'My Answer: {two_sums(questions[i], targets[i])}')
+    print(f'My improved answer: {improve_two_sums(questions[i], targets[i])}\n')
