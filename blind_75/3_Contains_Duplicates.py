@@ -13,7 +13,14 @@
 # Output: true
 
 def containsDuplicate(nums):
-    return None
+    duplicates = {}
+
+    for num in nums:
+        if num in duplicates:
+            return True
+        else:
+            duplicates[num] = 1
+    return False
 
 questions = ([1, 2, 3, 1], [1, 2, 3, 4], [1, 1, 1, 3, 3, 4, 3, 2, 4, 2])
 answers = (True, False, True)
