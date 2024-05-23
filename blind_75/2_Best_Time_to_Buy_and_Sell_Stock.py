@@ -14,13 +14,41 @@
 # Output: 0
 # Explanation: In this case, no transactions are done and the max profit = 0.
 
-def max_profit(question):
-    return 
+# Input: prices = [2,1,2,0,1]
+# Output: 1
 
-questions = ([7, 1, 5, 3, 6, 4], [7, 6, 4, 3, 1])
-answers = (5, 0)
+def maxProfit(prices):
+    profit = 0
+    max_profit = 0
+
+    if len(prices) == 0:
+        return profit
+    
+    buy = prices[0]
+    sell = None
+
+    for price in prices[1:]:
+        if buy > price:
+            buy = price
+            sell = price
+        else:
+            if not sell:
+                sell = price
+            else:
+                if sell < price:
+                    sell = price
+
+        profit = sell - buy
+        
+        if profit > max_profit:
+            max_profit = profit
+    
+    return max_profit
+
+questions = ([7, 1, 5, 3, 6, 4], [7, 6, 4, 3, 1], [2,1,2,0,1])
+answers = (5, 0, 1)
 
 for i in range(len(questions)):
     print(f'Question {i + 1}: {questions[i]} | Answer: {answers[i]}')
-    print(f'My Answer: {max_profit(questions[i])}')
+    print(f'My Answer: {maxProfit(questions[i])}')
 
